@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid19Meter | Practice Social Distance</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <span id="header">covid19<span>meter</span></span>
+        </a>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Countries</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
+        <div id="time">
+            <h5>COVID19 CORONAVIRUS PANDEMIC</h5>
+            <p>Time since last updated: <span>{{time|time:"H:i"}} GMT</span></p>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <h4>WORLDWIDE</h4>
+                <div id="row" class="row">
+                    <div class="col-4">
+                        <h3>TOTAL CASES</h3>
+                        <h2><span id="cases">{{ total_cases }}</span></h2>
+                    </div>
+                    <div class="col-4">
+                        <h3>DEATHS</h3>
+                        <h2><span id="deaths">{{ total_deaths }}</span></h2>
+                    </div>
+                    <div class="col-4">
+                        <h3>RECOVERED</h3>
+                        <h2><span id="recovered">{{ total_recovered }}</span></h2>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <h4>TANZANIA</h4>
+                    <div id="row" class="row">
+                        <div class="col-4">
+                            <h3>TOTAL CASES</h3>
+                            <h2><span id="cases">19</span></h2>
+                        </div>
+                        <div class="col-4">
+                            <h3>DEATHS</h3>
+                            <h2><span id="deaths">0</span></h2>
+                        </div>
+                        <div class="col-4">
+                            <h3>RECOVERED</h3>
+                            <h2><span id="recovered">1</span></h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>ACTIVE CASES</h5>
+                            <div style="background-color: rgb(206,200,200);width: 100%;height: 1px;"></div>
+                            <p>Currently Infected Patients:
+                                <span style="font-weight: bolder;">{{ infected_patients }}</span>
+                            </p>
+                            <p>In Mild Condition:
+                                <span style="font-weight: bolder;">{{ mild_patients }} ({{ mild_percent }}%)</span>
+                            </p>
+                            <p>Serious or Critical:
+                                <span style="font-weight: bolder;color: red;">{{ critical_patient }} ({{ critical_percent }}%)</span>
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <h5>CLOSED CASES</h5>
+                            <div style="background-color: rgb(206,200,200);width: 100%;height: 1px;"></div>
+                            <p>Cases which had an outcome:
+                                <span style="font-weight: bolder;">{{ total_cases_closed }}</span>
+                            </p>
+                            <p>Recovered / Discharged:
+                                <span style="font-weight: bolder;">{{ total_recovered }} ({{recovered_or_discharged_percent}}%)</span>
+                            </p>
+                            <p>Deaths:
+                                <span style="font-weight: bolder;">{{ total_deaths }} ({{death_percent_on_active_cases}}%)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <p id="links">Useful Info:</p>
+                <ul>
+                    <a href="#"><li>Symptoms</li></a>
+                    <a href="#"><li>Motality Rate</li></a>
+                    <a href="#"><li>Incubation</li></a>
+                </ul>
+            </div>
+          </div>
+      </div>
+</body>
+</html>
