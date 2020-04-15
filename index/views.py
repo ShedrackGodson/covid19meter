@@ -92,13 +92,16 @@ def home(request):
     context["time"] = time
 
     # Cases in Tanzania
-    # tz_cases = []
-    # for case in soup.find_all("tr", class_="odd"):
-    #     tz_cases.append(case)
-    # print(tz_cases)
-    # who_src_file = requests.get("https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports").text
-    # who_soup = BeautifulSoup(who_src_file, "lxml")
+    src_file_tz = requests.get("https://www.worldometers.info/coronavirus/country/tanzania/").text
+    soup_tz = BeautifulSoup(src_file_tz,"lxml")
 
-    # print(who_soup.prettify())
+    total_cases_tz = []
+    for cases_tz in soup_tz.findAll("div", class_="maincounter-number"):
+        total_cases_tz.append(cases_tz.span.text)
+
+
+    context["total_cases_tz"]=total_cases_tz[0]
+    context["total_recovered_tz"]=total_cases_tz[2]
+    context["total_deaths_tz"]=total_cases_tz[1]
 
     return render(request, "index/home.html",context)

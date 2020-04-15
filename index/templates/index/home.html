@@ -23,9 +23,9 @@
       
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">Countries</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </nav>
@@ -56,15 +56,15 @@
                     <div id="row" class="row">
                         <div class="col-4">
                             <h3>TOTAL CASES</h3>
-                            <h2><span id="cases">19</span></h2>
+                            <h2><span id="cases">{{ total_cases_tz }}</span></h2>
                         </div>
                         <div class="col-4">
                             <h3>DEATHS</h3>
-                            <h2><span id="deaths">0</span></h2>
+                            <h2><span id="deaths">{{ total_deaths_tz }}</span></h2>
                         </div>
                         <div class="col-4">
                             <h3>RECOVERED</h3>
-                            <h2><span id="recovered">1</span></h2>
+                            <h2><span id="recovered">{{ total_recovered_tz }}</span></h2>
                         </div>
                     </div>
                 </div>
@@ -103,9 +103,9 @@
             <div class="col-4">
                 <p id="links">Useful Info:</p>
                 <ul>
-                    <a href="#"><li>Symptoms</li></a>
-                    <a href="#"><li>Motality Rate</li></a>
-                    <a href="#"><li>Incubation</li></a>
+                    <a href="https://www.worldometers.info/coronavirus/coronavirus-symptoms/"><li>Symptoms</li></a>
+                    <a href="https://www.worldometers.info/coronavirus/coronavirus-death-rate/"><li>Motality Rate</li></a>
+                    <a href="https://www.worldometers.info/coronavirus/coronavirus-incubation-period/"><li>Incubation Period</li></a>
                 </ul>
             </div>
           </div>
